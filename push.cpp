@@ -1312,6 +1312,25 @@ class CPushMod : public CModule
 
 			return CONTINUE;
 		}
+		
+		/**
+		 * Handle a raw message (raw message is a message that is not in any other kind of message).
+		 *
+		 * @param msg CMessage object
+		 */
+		EModRet OnRawMessage(CMessage& msg)
+		{
+			const CNick &nick = msg.GetNick();
+			CString message = msg.ToString();
+			if (notify_pm(nick, message))
+			{
+				CString title = "Raw Message";
+
+				send_message(message, title, nick.GetNick(), nick);
+			}
+
+			return CONTINUE;
+		}
 
 		/**
 		 * Handle a message sent by the user.
