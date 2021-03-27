@@ -253,7 +253,7 @@ class CPushMod : public CModule
 			// Message string replacements
 			MCString replace;
 			replace["{context}"] = context;
-			replace["{nick}"] = nick.GetNick();
+			replace["{nick}"] = nick.GetNickMask();
 			replace["{datetime}"] = CString(iso8601);
 			replace["{unixtime}"] = CString(time(NULL));
 			replace["{message}"] = short_message;
