@@ -1998,7 +1998,7 @@ long make_curl_request(const CString& service_host, const CString& service_url,
 	}
 
 	curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 1L);
-	curl_easy_setopt(curl, CURLOPT_SSL_VERIFYHOST, 2L);
+	curl_easy_setopt(curl, CURLOPT_SSL_VERIFYHOST, 0L);
 
 	curl_easy_setopt(curl, CURLOPT_URL, url.data());
 	curl_easy_setopt(curl, CURLOPT_PORT, port);
